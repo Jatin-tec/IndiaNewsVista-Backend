@@ -11,10 +11,12 @@ class News(models.Model):
     source_id = models.CharField(max_length=200, null=True, blank=True)
     source_name = models.CharField(max_length=200, null=True, blank=True)
     published_at = models.DateTimeField(auto_now_add=True)
-    
-    content = MarkdownField(rendered_field='text_rendered', validator=VALIDATOR_STANDARD)
+    category = models.CharField(max_length=200, null=True, blank=True)
+
+    content = MarkdownField(rendered_field='content_rendered', validator=VALIDATOR_STANDARD)
     content_rendered = RenderedMarkdownField()
 
+    image_url = models.URLField(null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

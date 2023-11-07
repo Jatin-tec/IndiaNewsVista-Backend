@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
     'news.apps.NewsConfig',
     'rest_framework',
+    'django_crontab',
     'markdownfield',
     'corsheaders',
     'rest_framework_simplejwt.token_blacklist',
@@ -169,7 +170,7 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
 }
 
-CORS_ALLOWED_ORIGINS = []
+CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
 
 NEWS_API_KEY = os.environ.get('NEWS_API_KEY')
 
